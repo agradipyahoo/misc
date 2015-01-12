@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>Nested document.write()</title>
+</head>
+<body>
+<script src="nested.document.js"></script>
+<script>
+
+
+    /*
+     * validations
+     * typeof str
+     * check for first top level document.write with proper starting ( and ending ). check stack implemnetion for thta or regex.
+     * check if string is valid javascript expression or string . If String excute it or if  continue to step1.
+     * Case one inline script
+     * Case script src
+     */
+    (function(s) {
+        var validation = checkValidInput(s);
+        if(!validation.valid){
+            alert('Opps invalid Input');
+        }
+        else{
+            document.write(validation.text);
+        }
+        //write your code here to parse s and print "Hello World". Remember - your solution must work for n level of document.write() nesting
+    })("document.write('<script>document.write(\"<script>document.write('<script>document.write(\'<script>document.write(\'<script>document.write(\"Agradip World\");<\/script>\');<\/script>\');<\/script>');<\/script>\");<\/script>')");
+</script>
+</body>
+</html>
